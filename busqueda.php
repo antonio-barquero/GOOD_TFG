@@ -37,8 +37,9 @@
 				<div class="searchtxt">
 					<h1>BUSCA TU COCHE IDEAL:</h1>
 				</div>
-				
+
                 <form class="navbar-form navbar-left searchformmargin" role="search">
+				
 				<select name="OS" size=1 class="form-control searchform">
         
 		<optgroup label="*Abarth"> 
@@ -527,14 +528,48 @@
 				</form>
                 <form class="navbar-form navbar-left searchformmargin" role="search">
 					<div class="form-group">
-						
+					
 						<select name="OS"  class="form-control searchform">
-						
+						<optgroup label="Combustible">
 							<option value="2" name="diesel">Diesel</option> 
 							<option value="3" name="gasolna">Gasolina</option> 
 							<option value="3" name="hibrido">Hibrido</option> 
 							<option value="3" name="electrico">Electrico</option> 
+							</optgroup>
+						</select>
+					
+					</div>
+
+				</form>
+				<form class="navbar-form navbar-left searchformmargin" role="search">
+					<div class="form-group">
 						
+						<select name="OS"  class="form-control searchform">
+						<optgroup label="KMS">
+							<option value="" name="diesel">KMS</option> 
+							<option value="3" name="gasolna">Hasta 5000km</option> 
+							<option value="3" name="hibrido">Hasta 10.000km</option> 
+							<option value="3" name="electrico">Hasta 20.000km</option> 
+							<option value="3" name="hibrido">Hasta 30.000km</option> 
+							<option value="3" name="electrico">Hasta 40.000km</option> 
+							<option value="3" name="hibrido">Hasta 10.000km</option> 
+							<option value="3" name="electrico">Hasta 60.000km</option> 
+							<option value="3" name="hibrido">Hasta 80.000km</option> 
+							<option value="3" name="electrico">Hasta 100.000km</option> 
+							<option value="3" name="electrico">Hasta 130.000km</option> 
+							<option value="3" name="hibrido">Hasta 150.000km</option> 
+							<option value="3" name="electrico">Hasta 170.000km</option> 
+							<option value="3" name="hibrido">Hasta 200.000km</option> 
+							<option value="3" name="electrico">Hasta 230.000km</option> 
+							<option value="3" name="hibrido">Hasta 250.000km</option> 
+							<option value="3" name="electrico">Hasta 270.000km</option> 
+							<option value="3" name="hibrido">Hasta 300.000km</option>
+							<option value="3" name="hibrido">Hasta 400.000km</option>
+							<option value="3" name="hibrido">Hasta 500.000km</option>
+							<option value="3" name="hibrido">Hasta 600.000km</option>
+							<option value="3" name="hibrido">Más de 600.000km</option>
+							
+						</optgroup>
 						</select>
 					</div>
 

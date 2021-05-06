@@ -9,13 +9,14 @@
 
   </head>
   <body>
+    <br>
       <?php 
          include 'menu.html' ;
        ?>
        <br><br><br><br>
-    
+   
 
-       <p class="texto" >Registro</p>
+       <p class="texto" >REGISTRO</p>
         <div class="Registro">
           <form method="post" action="">
 
@@ -25,6 +26,7 @@
             <input type="submit" value="Registrar" title="Registra tu cuenta">
           </form>
         </div> 
+      
 
 
 
