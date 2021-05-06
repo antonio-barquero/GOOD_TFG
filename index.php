@@ -73,7 +73,7 @@
 			<img class="newsimage" src="images/coche4.jpeg" alt="newsletter">
 			
 			
-			<button >REGÍSTRATE</button>
+			<button class="enlace" role="link" onclick="window.location='login2.php'">REGISTRARSE</button>
 			
 		</div>
 	</div>
