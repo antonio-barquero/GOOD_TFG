@@ -12,10 +12,14 @@
          include 'menu.html' ;
        ?>
 <br><br><br><br><br>
-<h1><b><u>   ANUNCIA TU COCHE</u></b></h1>
+<form action="" method="post" target="_blank" align="center">
 
-    <select name="OS" size=20>
-        <option selected value="0"> Elige una Marca y modelo</option>
+
+<h1><b><u>   ANUNCIA TU COCHE</u></b></h1>
+<br>
+<h3><u><b>MARCA Y MODELO</b></u></h3>
+    <select name="OS" size=15>
+        
             <optgroup label="*Abarth"> 
                     <option name="ab595">Abarth 595</option>
                     <option name="ab124">Abarth 124</option> 
@@ -483,66 +487,59 @@
                 <option name="RX">LEXUS RX</option>
                 <option name="UX">LEXUS UX</option>
             </optgroup>
-            <optgroup label="*LEXUS"> 
-                <option name="CT">LEXUS CT</option>
-                <option name="ES">LEXUS ES</option>
-                <option name="GS">LEXUS GS</option>
-                <option name="IS">LEXUS IS</option>
-                <option name="LC">LEXUS LC</option> 
-                <option name="LS">LEXUS LS</option>
-                <option name="NX">LEXUS NX</option>
-                <option name="RC">LEXUS RC</option>
-                <option name="RX">LEXUS RX</option>
-                <option name="UX">LEXUS UX</option>
-            </optgroup>
-            <optgroup label="*LEXUS"> 
-                <option name="CT">LEXUS CT</option>
-                <option name="ES">LEXUS ES</option>
-                <option name="GS">LEXUS GS</option>
-                <option name="IS">LEXUS IS</option>
-                <option name="LC">LEXUS LC</option> 
-                <option name="LS">LEXUS LS</option>
-                <option name="NX">LEXUS NX</option>
-                <option name="RC">LEXUS RC</option>
-                <option name="RX">LEXUS RX</option>
-                <option name="UX">LEXUS UX</option>
-            </optgroup>
-            <optgroup label="*LEXUS"> 
-                <option name="CT">LEXUS CT</option>
-                <option name="ES">LEXUS ES</option>
-                <option name="GS">LEXUS GS</option>
-                <option name="IS">LEXUS IS</option>
-                <option name="LC">LEXUS LC</option> 
-                <option name="LS">LEXUS LS</option>
-                <option name="NX">LEXUS NX</option>
-                <option name="RC">LEXUS RC</option>
-                <option name="RX">LEXUS RX</option>
-                <option name="UX">LEXUS UX</option>
-            </optgroup>
-            <optgroup label="*LEXUS"> 
-                <option name="CT">LEXUS CT</option>
-                <option name="ES">LEXUS ES</option>
-                <option name="GS">LEXUS GS</option>
-                <option name="IS">LEXUS IS</option>
-                <option name="LC">LEXUS LC</option> 
-                <option name="LS">LEXUS LS</option>
-                <option name="NX">LEXUS NX</option>
-                <option name="RC">LEXUS RC</option>
-                <option name="RX">LEXUS RX</option>
-                <option name="UX">LEXUS UX</option>
-            </optgroup>
+          
            
     </select>
     
-    <p>
-        Manual: <input type="radio" name="citizenship" /><br />
-        Automatico: <input type="radio" name="citizenship" /><br />
-       
-    </p>
-      
+    <br><br>
+    
+ 
+    <h3><u><b>CAMBIO:</b></u></h3>
+
+        <input type="radio" name="empleoactual" value="manual"> Manual<br>
+
+        <input type="radio" name="empleoactual" value="automatico"> Automático<br>
+    
+
+  
+
+
+
+    <br><br>
+    
+    <h3><u><b>TIPO DE COMBUSTIBLE:</b></u></h3>
+    <select name="OS" size=1>
+  
+    
+            
+                    <option name="ab595">Diesel</option>
+                    <option name="ab124">Gasolina</option> 
+                    <option name="ab124">Hibrido</option>
+                    <option name="ab124">Electrico</option>
+            
+    </select>
+
+    <br><br>    
+
+          
+    <h3><u><b>AÑO DEL VEHÍCULO:</b></u></h3>
+        <input type="text" required  autocomplete="off"> 
+            
+        <br><br>
+        
+
+        <p><input type="submit" value="Registrar coche" ></p>
+
+        </form>
+
+
+
+
     <?php 
          include 'menu2.html' ;
-       ?>
+    ?>
+
+
 </body>
 
 </html>
