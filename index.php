@@ -57,26 +57,8 @@
 			</div>
 		</div>
 	</div>
-
-
 <br>
 <br>
-
-	
-<!-- __________News Letter _______-->
-	<div class="newslettercontent">
-		<div class="leftside">
-			
-		</div>
-		<div class="rightside">
-			<BR><BR><BR><BR><BR><BR>
-			<img class="newsimage" src="images/coche4.jpeg" alt="newsletter">
-			
-			
-			<button >REGÍSTRATE</button>
-			
-		</div>
-	</div>
 	<?php 
          include 'menu2.html' ;
        ?>
