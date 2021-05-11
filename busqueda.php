@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="source/font-awesome-4.5.0/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="style/slider.css">
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
+	<link rel="stylesheet" type="text/css" href="menu3.css">
 </head>
 <body>
 <!-- Header -->
@@ -20,6 +21,7 @@
        ?>
 <!--_____________ Carousel____________ -->
 <div class="allcontain">
+
 	<div id="carousel-up" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner " role="listbox">
 			<div class="item active">
@@ -32,10 +34,11 @@
 		</div>
 		<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
             <nav class="navbar navbar-default midle-nav">
-			
+			<div class="header5">
 			<div class="collapse navbar-collapse" id="navbarmidle">
 				<div class="searchtxt">
 					<h1>BUSCA TU COCHE IDEAL:</h1>
+					
 				</div>
 
                 <form class="navbar-form navbar-left searchformmargin" role="search">
@@ -588,6 +591,7 @@
 					
 	</div>
 </div>
+</div>
 <!-- _______Featured Section ___________--> 
 <div class="allcontain">
 	<div class="feturedsection">
@@ -631,6 +635,7 @@
 			</div>
 		</div>
 	</div>
+	
 
 
 
