@@ -1,41 +1,32 @@
-<!Doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-	  <title>Login Wallacar</title>
-	  
-    <link href="login.css" rel="stylesheet" type="text/css">
-  
+<?php
 
-  </head>
-  <body>
-    <br>
-      <?php 
-         include 'menu.html' ;
-       ?>
-       <br><br><br><br>
-   
+    if (isset($_POST['submit']))
+    {
+        $nombre= $_POST['nombre'];
+        $email = $_POST['email'];
+        $contraseña = $_POST['contraseña'];
+       
+        echo "rellenados";
+    
 
-       <p class="texto" >REGISTRO</p>
-        <div class="Registro">
-          <form method="post" action="">
 
-            <input type="text" required placeholder="Nombre de usuario" autocomplete="off"> 
-            <input type="text" id="email" required placeholder="Correo" autocomplete="off">
-            <input type="password" name="password" id="password" required placeholder="Contraseña" autocomplete="off"> 
-            <input type="submit" value="Registrar" title="Registra tu cuenta">
-          </form>
-        </div> 
+$conexion = new mysqli('localhost', 'root', '', 'wallacar');
+
+$sql= "INSERT INTO usuarios (nombre, email, contraseña ) VALUES ('$nombre', '$email','$contraseña')";
+
+$conexion->query($sql);
+
+    if($conexion-> affected_rows>=1)
+        {
+            echo "conectado";
+        }
+        else {
+            echo "prueba otra vez";
+    }
+
+      require 'login.view.php';     
       
+      
+    }
 
-
-
-
-
-   </body>
-        <?php 
-         include 'menu2.html' ;
-       ?>
-  
-
- </html>
+?>
