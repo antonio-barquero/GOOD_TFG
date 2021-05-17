@@ -15,7 +15,7 @@
        ?>
 	   <br><br>
 <div align=center>
-<img src="images/contacto.jpg">
+<img src="images/contactotrue.jpg">
 </div>
 
 
