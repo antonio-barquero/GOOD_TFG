@@ -1,16 +1,38 @@
+<?php
+// Iniciar la sesion
+session_start();
+ 
+// Compruebe si el usuario ha iniciado sesión, si no, rediríjalo a la página de inicio de sesión
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: anuncia.view.php");
+    exit;
+} 
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link href="menu.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; text-align: center; }
+    </style>
 </head>
 
-<body>   
-
-
-      <br>
-      <?php 
+    <?php 
          include 'menu.html' ;
        ?>
+<body>
+<br><br><br>	<br><br><br><br><br><br>	
+    <div class="page-header">
+        <h1 style="color: black">Hola, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Bienvenid@ a nuestro sitio.</h1>       
+    </div>
+    <p>
+        <a href="reset-password.php" class="btn btn-warning">Cambia tu contraseña</a>
+        <a href="logout.php" class="btn btn-danger">Cierra la sesión</a>
+
+    </p>  
+      <br>
 <br><br><br><br><br>
 <form action="anuncia.php" method="post" align="center">
 
@@ -18,7 +40,7 @@
 <h1><b><u>   ANUNCIA TU COCHE</u></b></h1>
 <br>
 <h3><u><b>MARCA Y MODELO</b></u></h3>
-    <select name="modelo" size=15>
+    <select name="modelo" size=15 required>
         
             <optgroup label="*Abarth"> 
                     <option name="ab595">Abarth 595</option>
@@ -495,15 +517,15 @@
     
     <h3><u><b>PRECIO DEL VEHÍCULO:</b></u></h3>
     
-    <input type="text" name="precio" required  autocomplete="off"> 
+    <input type="text"  maxlength="7"  name="precio" required  autocomplete="off" pattern="[0-9]+"> 
   
     <br><br>
     <h3><u><b>CAMBIO:</b></u></h3>
     
     
-        <input type="radio" name="cambio" value="manual"> Manual<br>
+        <input type="radio" name="cambio" value="manual" required> Manual<br>
 
-        <input type="radio" name="cambio" value="automatico"> Automático<br>
+        <input type="radio" name="cambio" value="automatico" required> Automático<br>
     
 
   
@@ -512,7 +534,7 @@
     <br><br>
     
     <h3><u><b>TIPO DE COMBUSTIBLE:</b></u></h3>
-    <select name="combustible">
+    <select name="combustible" required>
   
     
             
@@ -528,13 +550,13 @@
           
     <h3><u><b>AÑO DEL VEHÍCULO:</b></u></h3>
     
-        <input type="text" name ="año" required  autocomplete="off"> 
+        <input type="text" maxlength="4" minlength="4" name ="año" required  autocomplete="off" pattern="[0-9]+"> 
       
         <br><br>
 
         <h3><u><b>KILOMETROS DEL VEHÍCULO:</b></u></h3>
     
-    <input type="text" name ="km" required  autocomplete="off"> 
+    <input type="text" maxlength="7" name ="km" required  autocomplete="off" pattern="[0-9]+"> 
   
     <br><br>
         
@@ -545,6 +567,7 @@
     <h3><u><b>IMAGENES DEL VEHÍCULO:</b></u></h3>
     <br>
     <p>Selecciona las fotos de su vehiculo</p>
+   
     <p><input type="submit" value="Registrar coche" ></p>
 
         </form>

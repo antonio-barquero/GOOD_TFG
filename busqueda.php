@@ -41,9 +41,9 @@
 					
 				</div>
 
-                <form class="navbar-form navbar-left searchformmargin" role="search">
+                <form class="navbar-form navbar-left searchformmargin" role="search" action=busqueda.php method="POST">
 				
-				<select name="OS" size=1 class="form-control searchform">
+				<select name="busqueda1" size=1 class="form-control searchform">
         
 		<optgroup label="*Abarth"> 
 				<option name="ab595">Abarth 595</option>
@@ -515,24 +515,21 @@
 	  
 	   
 </select>
-				</form>
-               
-                <form class="navbar-form navbar-left searchformmargin" role="search">
-					<div class="form-group">
-					<select name="OS" class="form-control searchform">
+				
+					
+					<select name="busqueda2" class="form-control searchform">
 						
 							
 							<option value="1">Automatico</option> 
 							<option value="2">Manual</option> 
 						
 						</select>
-					</div>
-                
-				</form>
-                <form class="navbar-form navbar-left searchformmargin" role="search">
-					<div class="form-group">
 					
-						<select name="OS"  class="form-control searchform">
+                
+			
+				
+					
+						<select name="busqueda3"  class="form-control searchform">
 						<optgroup label="Combustible">
 							<option value="2" name="diesel">Diesel</option> 
 							<option value="3" name="gasolna">Gasolina</option> 
@@ -541,13 +538,11 @@
 							</optgroup>
 						</select>
 					
-					</div>
+			
 
-				</form>
-				<form class="navbar-form navbar-left searchformmargin" role="search">
-					<div class="form-group">
+		
 						
-						<select name="OS"  class="form-control searchform">
+						<select name="busqueda3"  class="form-control searchform">
 						<optgroup label="KMS">
 							<option value="" name="diesel">KMS</option> 
 							<option value="3" name="gasolna">Hasta 5000km</option> 
@@ -574,17 +569,17 @@
 							
 						</optgroup>
 						</select>
-					</div>
+				
 
-				</form>
-				<form class="navbar-form navbar-left searchformmargin" role="search">
+			
+				
 
-				<input type="submit" value="buscar" title="buscar" >
+				<input type="submit" value="buscar" name ="buscar" title="buscar" >
 					
-				</form>
+				
 
 				
-			</div>
+			
 			
 				
 				</form>
@@ -593,52 +588,65 @@
 </div>
 </div>
 <!-- _______Featured Section ___________--> 
-<div class="allcontain">
-	<div class="feturedsection">
-		<h1 class="text-center"><span class="bdots">&bullet;</span>COCHES ENCOTRADOS SEGUN TU BUSQUEDA<span class="carstxt"></span>&bullet;</h1>
-	</div>
-	<div class="feturedimage">
-		<div class="row firstrow">
-			<div class="col-lg-6 costumcol colborder1">
-				<div class="row costumrow">
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img1colon">
-						<img src="images/coche5.jpeg" alt="audi">
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
-						<div class="featurecontant">
-							<h1>AUDI RS7</h1>
-							<p>Año 2018 <br> 108.000 kms <br>
-								Gasolina<br> 5 puertas<br> 390 cv <br>Automático  </p>
-			 				<h2>Precio:  54.490 &euro;</h2>
-			 				<button id="btnRM" onclick="rmtxt()">CONTACTAR</button>
-			 				
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 costumcol colborder2">
-				<div class="row costumrow">
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img2colon">
-						<img src="images/coche6.jpeg" alt="porsche1">
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
-						<div class="featurecontant">
-							<h1>FERRARI 430</h1>
-							<p>Año 2008 <br> 28.000 kms <br>
-								Gasolina<br> 2 puertas<br> 490 cv <br>Automático </p>
-			 				<h2>Precio: 100.000 &euro;</h2>
-			 				<button id="btnRM2">CONTACTAR</button>
-			 				
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<?php
+
+$conexion= mysqli_connect("localhost", "root", "", "wallacar");
+if($conexion)
+    {
+       
+        $consulta= "SELECT * FROM coches";
+        $resultado=mysqli_query($conexion, $consulta);
+		
+		
+	
+        if($resultado)
+            {
+				
+                while($row = $resultado->fetch_array())
+                    {
+                    $id= $row['id']; 
+                    $modelo= $row['modelo']; 
+                    $km= $row['km']; 
+                    $año= $row['año']; 
+                    $precio= $row['precio']; 
+                    $cambio= $row['cambio']; 
+                    $combustible= $row['combustible']; 
+                    }
+
+            }
+    }
+
+    ?>
+
+    <!-- _______Featured Section ___________--> 
+    <div class="allcontain">
+        <div class="feturedsection">
+            <h1 class="text-center"><span class="bdots">&bullet;</span>COCHES ENCOTRADOS SEGUN TU BUSQUEDA<span class="carstxt"></span>&bullet;</h1>
+        </div>
+        <div class="feturedimage">
+            <div class="row firstrow">
+                <div class="col-lg-6 costumcol colborder1">
+                    <div class="row costumrow">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 img1colon">
+                            <img src="images/coche5.jpeg" alt="audi">
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
+                            <div class="featurecontant">
+                                <h1><?php echo $modelo ?></h1>
+                                <p><?php echo $año ?> <br> <?php echo $km ?> <br>
+                                <?php echo $combustible ?><br><?php echo $cambio ?>  </p>
+                                 <h2><?php echo $precio ?> &euro;</h2>
+                                 <button href="contactar_usuario.html" id="btnRM" onclick="rmtxt()">CONTACTAR</button>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
 	
 
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<?php 
          include 'menu2.html' ;
        ?>
