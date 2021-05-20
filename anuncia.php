@@ -9,8 +9,12 @@
        $cambio= $_POST['cambio'];
        $combustible= $_POST['combustible'];
 
-     
+       $imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+       
+       
    
+       
+    
 
        if($año>2021)
      {
@@ -23,7 +27,7 @@ $prueba=false;
          
 $conexion = new mysqli('localhost', 'root', '', 'wallacar');
 
-$sql= "INSERT INTO coches( modelo, km, año, precio, cambio, combustible) VALUES ('$modelo', '$km','$año','$precio','$cambio', '$combustible')";
+$sql= "INSERT INTO coches( modelo, km, año, precio, cambio, combustible, imagen) VALUES ('$modelo', '$km','$año','$precio','$cambio', '$combustible','$imagen')";
 
 
 $conexion->query($sql);

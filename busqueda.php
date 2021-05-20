@@ -41,7 +41,7 @@
 					
 				</div>
 
-                <form class="navbar-form navbar-left searchformmargin" role="search" action=busqueda.php method="POST">
+                <form class="navbar-form navbar-left searchformmargin" role="search" name="hola" action=busqueda.php method="POST">
 				
 				<select name="busqueda1" size=1 class="form-control searchform">
         
@@ -509,6 +509,7 @@
 			<option name="LS">LEXUS LS</option>
 			<option name="NX">LEXUS NX</option>
 			<option name="RC">LEXUS RC</option>
+		
 			<option name="RX">LEXUS RX</option>
 			<option name="UX">LEXUS UX</option>
 		</optgroup>
@@ -542,7 +543,7 @@
 
 		
 						
-						<select name="busqueda3"  class="form-control searchform">
+						<select name="busqueda4"  class="form-control searchform" id="busqueda3">
 						<optgroup label="KMS">
 							<option value="" name="diesel">KMS</option> 
 							<option value="3" name="gasolna">Hasta 5000km</option> 
@@ -587,38 +588,41 @@
 	</div>
 </div>
 </div>
-<!-- _______Featured Section ___________--> 
+
+
+
+
+
 <?php
 
+$busqueda1=$_POST['busqueda1'];
+$busqueda2=$_POST['busqueda2'];
+$busqueda3=$_POST['busqueda3'];
+$busqueda4=$_POST['busqueda4'];
+
 $conexion= mysqli_connect("localhost", "root", "", "wallacar");
-if($conexion)
-    {
-       
-        $consulta= "SELECT * FROM coches";
-        $resultado=mysqli_query($conexion, $consulta);
+
+
+
+
+$sql4 = "SELECT * FROM coches  WHERE modelo = '".$busqueda1."' AND cambio= '".$busqueda2."'
+ AND combustible = '".$busqueda3."' AND km = '".$busqueda4."'"; // sql4 es el nombre de la variable que se crea para el query
+
+$result4 = $mysqli->query($sql4);                                 // creas una variable que recibe los datos conforme a tu conexion 
+$extraido4= mysqli_fetch_array($result4);              //array asociativo que recibe los datos
+
+    
+		while($row=$consulta->fetch_array())
+		{
+			
+			echo $row['modelo'];
+		}
 		
-		
+    
 	
-        if($resultado)
-            {
-				
-                while($row = $resultado->fetch_array())
-                    {
-                    $id= $row['id']; 
-                    $modelo= $row['modelo']; 
-                    $km= $row['km']; 
-                    $año= $row['año']; 
-                    $precio= $row['precio']; 
-                    $cambio= $row['cambio']; 
-                    $combustible= $row['combustible']; 
-                    }
-
-            }
-    }
-
     ?>
 
-    <!-- _______Featured Section ___________--> 
+   
     <div class="allcontain">
         <div class="feturedsection">
             <h1 class="text-center"><span class="bdots">&bullet;</span>COCHES ENCOTRADOS SEGUN TU BUSQUEDA<span class="carstxt"></span>&bullet;</h1>
@@ -631,11 +635,11 @@ if($conexion)
                             <img src="images/coche5.jpeg" alt="audi">
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
-                            <div class="featurecontant">
-                                <h1><?php echo $modelo ?></h1>
-                                <p><?php echo $año ?> <br> <?php echo $km ?> <br>
-                                <?php echo $combustible ?><br><?php echo $cambio ?>  </p>
-                                 <h2><?php echo $precio ?> &euro;</h2>
+						<div class="featurecontant">
+                                <h1><?php $row["modelo"] ?></h1>
+                                <?php $row["año"] ?><br> <?php $row=['km'] ?> <br>
+                                <?php $row["combustible"] ?><br><?php $row["cambio"] ?>  </p>
+                                 <h2><?php  $row=["precio"] ?> &euro;</h2>
                                  <button href="contactar_usuario.html" id="btnRM" onclick="rmtxt()">CONTACTAR</button>
                                  
                             </div>
@@ -652,3 +656,4 @@ if($conexion)
        ?>
 </body>
 </html>
+		

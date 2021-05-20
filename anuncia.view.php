@@ -567,6 +567,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <h3><u><b>IMAGENES DEL VEHÍCULO:</b></u></h3>
     <br>
     <p>Selecciona las fotos de su vehiculo</p>
+    <input type=file required name="imagen">
    
     <p><input type="submit" value="Registrar coche" ></p>
 
