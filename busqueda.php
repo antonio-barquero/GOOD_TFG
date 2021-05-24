@@ -41,9 +41,9 @@
 					
 				</div>
 
-                <form class="navbar-form navbar-left searchformmargin" role="search" name="hola" action=busqueda.php method="POST">
+                <form class="navbar-form navbar-left searchformmargin" role="search" action=busqueda.php method="post">
 				
-				<select name="busqueda1" size=1 class="form-control searchform">
+				<select name="busqueda1"  size=1 class="form-control searchform">
         
 		<optgroup label="*Abarth"> 
 				<option name="ab595">Abarth 595</option>
@@ -521,8 +521,8 @@
 					<select name="busqueda2" class="form-control searchform">
 						
 							
-							<option value="1">Automatico</option> 
-							<option value="2">Manual</option> 
+							<option value="automatico">Automatico</option> 
+							<option value="manual">Manual</option> 
 						
 						</select>
 					
@@ -532,10 +532,10 @@
 					
 						<select name="busqueda3"  class="form-control searchform">
 						<optgroup label="Combustible">
-							<option value="2" name="diesel">Diesel</option> 
-							<option value="3" name="gasolna">Gasolina</option> 
-							<option value="3" name="hibrido">Hibrido</option> 
-							<option value="3" name="electrico">Electrico</option> 
+							<option value="diesel" name="diesel">Diesel</option> 
+							<option value="gasolina" name="gasolina">Gasolina</option> 
+							<option value="hibrido" name="hibrido">Hibrido</option> 
+							<option value="electrico" name="electrico">Electrico</option> 
 							</optgroup>
 						</select>
 					
@@ -546,27 +546,24 @@
 						<select name="busqueda4"  class="form-control searchform" id="busqueda3">
 						<optgroup label="KMS">
 							<option value="" name="diesel">KMS</option> 
-							<option value="3" name="gasolna">Hasta 5000km</option> 
-							<option value="3" name="hibrido">Hasta 10.000km</option> 
-							<option value="3" name="electrico">Hasta 20.000km</option> 
-							<option value="3" name="hibrido">Hasta 30.000km</option> 
-							<option value="3" name="electrico">Hasta 40.000km</option> 
-							<option value="3" name="hibrido">Hasta 10.000km</option> 
-							<option value="3" name="electrico">Hasta 60.000km</option> 
-							<option value="3" name="hibrido">Hasta 80.000km</option> 
-							<option value="3" name="electrico">Hasta 100.000km</option> 
-							<option value="3" name="electrico">Hasta 130.000km</option> 
-							<option value="3" name="hibrido">Hasta 150.000km</option> 
-							<option value="3" name="electrico">Hasta 170.000km</option> 
+							<option value="3" name="5000">Hasta 1.000km</option> 
+							<option value="3" name="5000">Hasta 5.000km</option> 
+							<option value="3" name="10000">Hasta 10.000km</option>  
+							
+							<option value="3" name="240000">Hasta 50.000km</option> 
+							<option value="3" name="hibrido">Hasta 100.000km</option> 
+							<option value="3" name="electrico">Hasta 150.000km</option> 
 							<option value="3" name="hibrido">Hasta 200.000km</option> 
-							<option value="3" name="electrico">Hasta 230.000km</option> 
-							<option value="3" name="hibrido">Hasta 250.000km</option> 
-							<option value="3" name="electrico">Hasta 270.000km</option> 
-							<option value="3" name="hibrido">Hasta 300.000km</option>
-							<option value="3" name="hibrido">Hasta 400.000km</option>
-							<option value="3" name="hibrido">Hasta 500.000km</option>
-							<option value="3" name="hibrido">Hasta 600.000km</option>
-							<option value="3" name="hibrido">Más de 600.000km</option>
+							<option value="3" name="electrico">Hasta 250.000km</option> 
+							<option value="3" name="electrico">Hasta 300.000km</option> 
+							<option value="3" name="hibrido">Hasta 350.000km</option> 
+							<option value="3" name="electrico">Hasta 400.000km</option> 
+							<option value="3" name="hibrido">Hasta 450.000km</option> 
+							<option value="3" name="electrico">Hasta 500.000km</option> 
+							<option value="3" name="hibrido">Hasta 600.000km</option> 
+							<option value="3" name="electrico">Hasta 700.000km</option> 
+							<option value="3" name="hibrido"> +700.000km</option>
+						
 							
 						</optgroup>
 						</select>
@@ -595,35 +592,27 @@
 
 <?php
 
-$busqueda1=$_POST['busqueda1'];
-$busqueda2=$_POST['busqueda2'];
-$busqueda3=$_POST['busqueda3'];
-$busqueda4=$_POST['busqueda4'];
 
-$conexion= mysqli_connect("localhost", "root", "", "wallacar");
-
-
-
-
-$sql4 = "SELECT * FROM coches  WHERE modelo = '".$busqueda1."' AND cambio= '".$busqueda2."'
- AND combustible = '".$busqueda3."' AND km = '".$busqueda4."'"; // sql4 es el nombre de la variable que se crea para el query
-
-$result4 = $mysqli->query($sql4);                                 // creas una variable que recibe los datos conforme a tu conexion 
-$extraido4= mysqli_fetch_array($result4);              //array asociativo que recibe los datos
-
-    
-		while($row=$consulta->fetch_array())
-		{
-			
-			echo $row['modelo'];
-		}
+if(!empty($_POST["buscar"]))
+	{
 		
-    
-	
-    ?>
+		$conexion= mysqli_connect("localhost", "root", "", "wallacar");
 
-   
-    <div class="allcontain">
+		$busqueda1=$_POST['busqueda1'];
+		$busqueda2=$_POST['busqueda2'];
+		$busqueda3=$_POST['busqueda3'];
+		$busqueda4=$_POST['busqueda4'];
+		
+		
+
+		$sql4 = "SELECT * FROM coches  WHERE modelo LIKE '%".$busqueda1."%' AND combustible LIKE '%".$busqueda3."%' AND cambio LIKE '%".$busqueda2."%'";
+ 
+
+ $result4 = mysqli_query($conexion, $sql4);
+ 
+ while($row= mysqli_fetch_array($sql4)){?>  
+
+	<div class="allcontain">
         <div class="feturedsection">
             <h1 class="text-center"><span class="bdots">&bullet;</span>COCHES ENCOTRADOS SEGUN TU BUSQUEDA<span class="carstxt"></span>&bullet;</h1>
         </div>
@@ -636,22 +625,33 @@ $extraido4= mysqli_fetch_array($result4);              //array asociativo que re
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
 						<div class="featurecontant">
-                                <h1><?php $row["modelo"] ?></h1>
-                                <?php $row["año"] ?><br> <?php $row=['km'] ?> <br>
-                                <?php $row["combustible"] ?><br><?php $row["cambio"] ?>  </p>
-                                 <h2><?php  $row=["precio"] ?> &euro;</h2>
+                                <h1><?php $row['modelo'] ?></h1>
+                                <?php $row['año'] ?><br> <?php /*$row=['km']*/ ?> <br>
+                                <?php $row['combustible'] ?><br><?php $row['cambio'] ?>  </p>
+                                 <h2><?php  $row['precio'] ?> &euro;</h2>
                                  <button href="contactar_usuario.html" id="btnRM" onclick="rmtxt()">CONTACTAR</button>
-                                 
+                                
                             </div>
                         </div>
                     </div>
                 </div>
+				<?php }
+ }  
+                             // creas una variable que recibe los datos conforme a tu conexion 
+
+	
+
+    ?>
+
+   
+    
 				
 	
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<?php 
+		
          include 'menu2.html' ;
        ?>
 </body>

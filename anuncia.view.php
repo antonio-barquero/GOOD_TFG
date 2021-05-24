@@ -4,9 +4,9 @@ session_start();
  
 // Compruebe si el usuario ha iniciado sesión, si no, rediríjalo a la página de inicio de sesión
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: anuncia.view.php");
+    header("location: login.php");
     exit;
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
