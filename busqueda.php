@@ -605,11 +605,15 @@ if(!empty($_POST["buscar"]))
 		
 		
 
-		$sql4 = "SELECT * FROM coches  WHERE modelo LIKE '%".$busqueda1."%' AND combustible LIKE '%".$busqueda3."%' AND cambio LIKE '%".$busqueda2."%'";
+		$sql4 = "SELECT * FROM coches";
+		
+		// WHERE modelo LIKE '%".$busqueda1."%' AND combustible LIKE '%".$busqueda3."%' AND cambio LIKE '%".$busqueda2."%'";
+		
+
  
 
  $result4 = mysqli_query($conexion, $sql4);
- 
+ echo $result4;
  while($row= mysqli_fetch_array($sql4)){?>  
 
 	<div class="allcontain">
@@ -635,8 +639,10 @@ if(!empty($_POST["buscar"]))
                         </div>
                     </div>
                 </div>
-				<?php }
- }  
+				<?php 
+				}
+			}
+  
                              // creas una variable que recibe los datos conforme a tu conexion 
 
 	
